@@ -11,7 +11,11 @@
  */
 
 function sayHello() {
+  const canvas = document.getElementById('canvas1');
+  const ctx = canvas.getContext('2d');
 
+  ctx.font = '48px Arial';
+  ctx.strokeText("Hello, World!",10, 50);
 }
 
 /*
@@ -38,7 +42,21 @@ function sayHello() {
  */
 
 function drawRectangle() {
+  let widthRectangle = Number(prompt("What is the width of this rectangle?"));
+  let heightRectangle = Number(prompt("What is the height of this rectangle?"));
+  let x = Number(prompt("What is the x coordinate of this rectangle?"));
+  let y = Number(prompt("What is the y coordinate of this rectangle?"));
 
+  while(widthRectangle < 1 || heightRectangle < 1 || x < 5 || y <  5) {
+    widthRectangle = Number(prompt("What is the width of this rectangle?"));
+    heightRectangle = Number(prompt("What is the height of this rectangle?"));
+    x = Number(prompt("What is the x coordinate of this rectangle?"));
+    y = Number(prompt("What is the y coordinate of this rectangle?"));
+  }
+  const canvas = document.getElementById('canvas2');
+  const ctx = canvas.getContext('2d');
+
+  ctx.strokeRect(x, y, widthRectangle, heightRectangle);
 }
 
 /*
@@ -67,6 +85,15 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
+  const canvas = document.getElementById('canvas3');
+  const ctx = canvas.getContext('2d');
+
+  let inputColor = prompt("Please enter in a valid color");
+  while(inputColor != "black" && inputColor != "blue" && inputColor != "green" && inputColor != "orange" && inputColor != "purple" && inputColor != "red" && inputColor != "yellow"); {
+    inputColor = prompt("Please enter in a valid color");
+  }
+  ctx.fillStyle = inputColor;
+  ctx.fillRect(10, 10, 100, 50);
 
 }
 
